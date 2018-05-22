@@ -5,6 +5,7 @@ import { Observable } from 'rxjs'
 import { Subscription } from 'rxjs'
 
 
+
 declare var Plotly: any;
 
 @Component({
@@ -49,7 +50,6 @@ export class CmpchartComponent implements OnInit {
         console.log("ngOnInit chart component");
        // console.log(this.data);
        // console.log(this.layout);
- 
         //Plotly.newPlot('myPlotlyDiv', this.data, this.layout, this.options);
         this.basicChart()
   }
@@ -64,7 +64,7 @@ export class CmpchartComponent implements OnInit {
     var cheatmap = element
     var xValues = ['BTC','ETH','XRP','BCH','LTC','XLM','DASH','XMR','XEM','ETC','LSK','ZEC','SC','REP','NXT']
     var yValues = ['BTC','ETH','XRP','BCH','LTC','XLM','DASH','XMR','XEM','ETC','LSK','ZEC','SC','REP','NXT']
-    var  zValues= 
+    var  zValues=
     [
                   [1,0.85,0.82,0.74,0.79,0.74,0.84,0.81,0.6,0.71,0.79,0.8,0.72,0.55,0.73],
                   [0.85,1,0.88,0.8,0.8,0.78,0.85,0.73,0.66,0.75,0.8,0.83,0.71,0.56,0.72],
@@ -83,7 +83,7 @@ export class CmpchartComponent implements OnInit {
                   [0.73,0.72,0.76,0.64,0.71,0.75,0.74,0.65,0.66,0.59,0.77,0.74,0.69,0.39,1]
               ]
 
-  
+
     const style = {
       margin: { t: 0 }
     }
@@ -131,7 +131,7 @@ export class CmpchartComponent implements OnInit {
           pad: 0
       }
   };
-      
+
   for ( var i = 0; i < yValues.length; i++ ) {
     for ( var j = 0; j < xValues.length; j++ ) {
         var currentValue = zValues[i][j];
@@ -161,7 +161,7 @@ export class CmpchartComponent implements OnInit {
     Plotly.plot( element, data, layout )
 
 
-    
+
     cheatmap.on('plotly_click', function(data){
       var pts = '';
       alert('x=' + data.points[0].x + "->" + data.points[0].y);
