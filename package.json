@@ -25,7 +25,8 @@
     "plotly.js": "^1.37.1",
     "rxjs": "^6.1.0",
     "rxjs-compat": "^6.1.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.0.0",
