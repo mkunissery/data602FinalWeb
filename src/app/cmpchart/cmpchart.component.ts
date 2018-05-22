@@ -1,6 +1,9 @@
+import { CorrOptions } from './../analysisoptions';
 import { Component, EventEmitter,Input,Output,OnInit,ElementRef, ViewChild } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs'
 import { Subscription } from 'rxjs'
+
 
 declare var Plotly: any;
 
@@ -11,8 +14,26 @@ declare var Plotly: any;
 })
 export class CmpchartComponent implements OnInit {
 
+  corroption:CorrOptions[];
+
   @ViewChild('chart') el: ElementRef;
-  constructor() { }
+  //constructor() { }
+
+  constructor(private http: Http) { }
+  
+  getDatafromRestApi()
+  {
+   
+    this.http.get("http://localhost:5000/top15byhvol")
+    .subscribe(
+
+      (data: Response) => {
+        const corrgrid = data.json()
+        console.log(corrgrid)
+      }
+      
+    )
+  }
 
     @Input() data: any;
     @Input() layout: any;
@@ -20,6 +41,11 @@ export class CmpchartComponent implements OnInit {
     @Input() displayRawData: boolean;
 
   ngOnInit() {
+
+        this.corroption = [
+          {id:1,name:"Top 15 Cryptos by Market Cap"},
+          {id:2,name:"Top 15 Cryptos by 1M Historical Vol"}
+        ] 
         console.log("ngOnInit chart component");
        // console.log(this.data);
        // console.log(this.layout);

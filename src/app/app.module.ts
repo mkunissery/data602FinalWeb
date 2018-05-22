@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CmpchartComponent } from './cmpchart/cmpchart.component';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { CmpchartComponent } from './cmpchart/cmpchart.component';
     CmpchartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
