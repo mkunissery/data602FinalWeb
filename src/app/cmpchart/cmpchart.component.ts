@@ -16,23 +16,24 @@ declare var Plotly: any;
 export class CmpchartComponent implements OnInit {
 
   corroption:CorrOptions[];
+  corrgrid:string;
 
   @ViewChild('chart') el: ElementRef;
   //constructor() { }
 
   constructor(private http: Http) { }
-  
+
   getDatafromRestApi()
   {
-   
-    this.http.get("http://localhost:5000/top15byhvol")
+
+    this.http.get("http://0.0.0.0:5000")
     .subscribe(
 
       (data: Response) => {
         const corrgrid = data.json()
-        console.log(corrgrid)
+        console.log(corrgrid);
       }
-      
+
     )
   }
 
@@ -46,15 +47,17 @@ export class CmpchartComponent implements OnInit {
         this.corroption = [
           {id:1,name:"Top 15 Cryptos by Market Cap"},
           {id:2,name:"Top 15 Cryptos by 1M Historical Vol"}
-        ] 
+        ]
         console.log("ngOnInit chart component");
        // console.log(this.data);
        // console.log(this.layout);
         //Plotly.newPlot('myPlotlyDiv', this.data, this.layout, this.options);
-        this.basicChart()
+        this.basicChart();
+        this.getDatafromRestApi();
   }
 
   basicChart() {
+
 
     var colorscaleValue = [
       [-1, '#81a1ee'],
