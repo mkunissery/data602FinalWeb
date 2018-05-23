@@ -150,11 +150,42 @@ export class CmpchartComponent implements OnInit {
          console.log("Coming inside to render basic chaft");
          Plotly.plot( element, datas, layout )
 
+// Regression Chart
+
+          var originalValue = {
+            x: [1, 2, 3, 4],
+            y: [10, 15, 13, 17],
+            mode: "markers",
+            type: "scatter"
+          };
+          var predicted = {
+            x: [2, 3, 4, 5],
+            y: [16, 5, 11, 9],
+            mode: "lines",
+            type: "scatter"
+          };
+
+          var dataForRegression = [originalValue, predicted];
+          var graphOptions = {filename: "line-scatter", fileopt: "overwrite"};
+          var elem = document.getElementById('regression-chart');
+          Plotly.plot(elem, dataForRegression, graphOptions, function (err, msg) {
+              console.log(msg);
+            });
+
 
 
          cheatmap.on('plotly_click', function(datae){
            var pts = '';
+           var response = '';
            alert('x=' + datae.points[0].x + "->" + datae.points[0].y);
+           document.getElementById('regression-chart').style.display = 'block';
+           this.http.get("http://0.0.0.0:5000/getCorr/"+ datae.points[0].x + "-" + datae.points[0].y)
+           .subscribe(
+
+             (data: Response) => {
+               response = data.json();
+               console.log(response);
+             });
        });
 
 
