@@ -1,23 +1,24 @@
 <head>
-  <script src="../node_modules/plotly.js/dist/plotly.min.js"></script>
-
-</head>
-<select name=analysisoptions (change)=getDatafromRestApi(this)>
-  <option *ngFor="let opt of corroption" [value]="opt.id">{{opt.name}}</option>
-</select>
-  <div #chart>
-    <!-- Chart will appear here -->
+    <script src="../node_modules/plotly.js/dist/plotly.min.js"></script>
+   
+  </head>
+  <!--<select name=analysisoptions (change)=getDatafromRestApi(this)>
+    <option *ngFor="let opt of corroption" [value]="opt.id">{{opt.name}}</option>
+  </select>-->
+    <div #chart>
+      <!-- Chart will appear here -->
+    </div>
+    <div id="regression-chart">
+    </div>
+    <div #chart1></div>
+  <div *ngIf="displayRawData">
+    raw data:
+    <hr />
+    <span>{{data | json}}</span>
+    <hr />
+    layout:
+    <hr />
+    <span>{{layout | json}}</span>
+    <hr />
   </div>
-  <div id="regression-chart">
-  </div>
-
-<div *ngIf="displayRawData">
-  raw data:
-  <hr />
-  <span>{{data | json}}</span>
-  <hr />
-  layout:
-  <hr />
-  <span>{{layout | json}}</span>
-  <hr />
-</div>
+  
