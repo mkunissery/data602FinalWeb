@@ -71,7 +71,9 @@ export class CmpchartComponent implements OnInit {
         yValues = res; //xvalues and yvalues
 
         _.forOwn(corrgrid, function(value, key) {
-          zValues.push(Object.values(value));
+          var arr = Object.values(value);
+          arr = _.map(arr, function(item){return item.toFixed(4);});
+          zValues.push(arr);
          })
 
          const style = {
