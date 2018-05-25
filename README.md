@@ -20,12 +20,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Instructions for running
 
-git clone https://github.com/delagroove/finale_602
-docker pull mkunissery/web
-docker pull mkunissery/backendjob
-docker pull mkunissery/teampapp
-docker-compose up  [takes about 3-4 mins, loads 3 different services ]
-once container is loaded open http://0.0.0.0:4200 
+1.  git clone https://github.com/delagroove/finale_602
+2.  docker pull mkunissery/web
+3.  docker pull mkunissery/backendjob
+4.  docker pull mkunissery/teampapp
+5.  docker-compose up  [takes about 3-4 mins, loads 3 different services ]
+6.  once container is loaded open http://0.0.0.0:4200 
 
 ## Development server
 
